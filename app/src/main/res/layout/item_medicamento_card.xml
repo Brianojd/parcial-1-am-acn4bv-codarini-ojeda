@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
+        <!-- IZQUIERDA -->
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="0dp"
@@ -26,21 +26,37 @@
             android:layout_weight="1">
 
             <TextView
-                android:id="@+id/tvName"
+                android:id="@+id/tv_nombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="medicamento"
+                android:text="Nombre del medicamento"
                 android:textStyle="bold"
                 android:textSize="16sp" />
 
+            <TextView
+                android:id="@+id/tv_meta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Comprimido • 400 mg • Tomar 1"
+                android:textSize="13sp"
+                android:alpha="0.85"
+                android:paddingTop="2dp"/>
 
-
-
+            <TextView
+                android:id="@+id/tv_instr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Después de comer"
+                android:textSize="12sp"
+                android:alpha="0.7"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:paddingTop="2dp"/>
         </LinearLayout>
 
         <!-- DERECHA -->
         <TextView
-            android:id="@+id/tvTime"
+            android:id="@+id/tv_hora"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="08:00"

@@ -1,16 +1,16 @@
 package com.codarini.ojeda.parcial1.model;
 
-public class MedicamentItem {
-    public String nombre;
-    public String forma;
-    public Double concentracion;
-    public String unidad;
-    public Double dosis;
-    public String hora;
-    public String instrucciones;
+public class MedicamentoItem {
+    public String nombre;         // "Ibuprofeno"
+    public String forma;          // "Comprimido", "Cápsula"
+    public Double concentracion;  // 400.0
+    public String unidad;         // "mg"
+    public Double dosis;          // 1.0 (opcional)
+    public String hora;           // "08:00"
+    public String instrucciones;  // "Después de comer" (opcional)
 
-    public MedicamentItem(String nombre, String forma, Double concentracion, String unidad,
-                          Double dosis, String hora, String instrucciones) {
+    public MedicamentoItem(String nombre, String forma, Double concentracion, String unidad,
+                           Double dosis, String hora, String instrucciones) {
         this.nombre = nombre;
         this.forma = forma;
         this.concentracion = concentracion;
@@ -20,7 +20,8 @@ public class MedicamentItem {
         this.instrucciones = instrucciones;
     }
 
-    public String buildMeta() {
+    // "Comprimido • 400 mg • Tomar 1"
+    public String construirMeta() {
         StringBuilder sb = new StringBuilder();
         if (forma != null && !forma.isEmpty()) sb.append(forma);
         if (concentracion != null) {
