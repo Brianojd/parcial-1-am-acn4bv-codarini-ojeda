@@ -16,7 +16,7 @@ public class MedicamentosViewModel extends ViewModel {
     public LiveData<List<MedicamentoItem>> items = _items;
 
     public void loadNoIniciadas(long usuarioId) {
-        _items.setValue(repo.getNoIniciadasHoy(usuarioId));
+        //_items.setValue(repo.getNoIniciadasHoy(usuarioId));
     }
 
     public void addMockItem() {
