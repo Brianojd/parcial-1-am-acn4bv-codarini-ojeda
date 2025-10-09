@@ -39,7 +39,7 @@
                 android:nestedScrollingEnabled="false"
                 android:paddingBottom="12dp" />
 
-            <!--  layout de salud -->
+            <!--  layout de saludd -->
             <include layout="@layout/view_resumen_salud" />
 
         </LinearLayout>
