@@ -32,7 +32,7 @@ public class MedicamentosViewModel extends ViewModel {
 
 
 
-    public void agregarDosMocks() {
+    public void agregarMocks() {
         List<MedicamentoItem> actual = _medicamentos.getValue();
         if (actual == null) actual = new ArrayList<>();
 

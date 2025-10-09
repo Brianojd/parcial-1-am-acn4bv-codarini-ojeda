@@ -29,6 +29,6 @@ public class HomeActivity extends AppCompatActivity {
 
         vm.cargarNoIniciadas(1L);
 
-        fab.setOnClickListener(v -> vm.agregarDosMocks());
+        fab.setOnClickListener(v -> vm.agregarMocks());
     }
 }
