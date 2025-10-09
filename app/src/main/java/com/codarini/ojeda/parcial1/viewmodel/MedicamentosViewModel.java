@@ -11,6 +11,9 @@ import com.codarini.ojeda.parcial1.model.MedicamentoItem;
 public class MedicamentosViewModel extends ViewModel {
 
     private final MedicacionRepository repo = new MedicacionRepository();
+    private final MutableLiveData<String> _mensaje = new MutableLiveData<>();
+    public LiveData<String> mensaje = _mensaje;
+
 
     private final MutableLiveData<List<MedicamentoItem>> _medicamentos =
             new MutableLiveData<>(new ArrayList<>());
@@ -21,11 +24,38 @@ public class MedicamentosViewModel extends ViewModel {
     }
 
 
-    public void agregarMock() {
-        List<MedicamentoItem> lista = _medicamentos.getValue();
-        if (lista == null) lista = new ArrayList<>();
-        lista.add(new MedicamentoItem("Nuevo medicamento", "Comprimido", 250.0, "mg",
-                1.0, "16:00", "Agregado dinámicamente"));
-        _medicamentos.setValue(lista);
+
+
+
+
+    private int _mockClicks = 0;
+
+
+
+    public void agregarDosMocks() {
+        List<MedicamentoItem> actual = _medicamentos.getValue();
+        if (actual == null) actual = new ArrayList<>();
+
+        if (_mockClicks == 0) {
+
+            actual.add(new MedicamentoItem(
+                    "Ejemplo A", "Comprimido", 230.0, "prueba",
+                    1.0, "10:00", "Agrega solo 1 card para prueba"
+            ));
+            _mockClicks = 1;
+            _medicamentos.setValue(new ArrayList<>(actual));
+            return;
+        }
+
+
+
+
+
     }
+
+
+
+
+
+
 }
