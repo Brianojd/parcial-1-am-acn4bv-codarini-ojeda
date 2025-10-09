@@ -340,7 +340,7 @@
                     android:textSize="14sp"
                     android:textColor="#666"/>
             </LinearLayout>
-
+            <!--  layout de salud -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
