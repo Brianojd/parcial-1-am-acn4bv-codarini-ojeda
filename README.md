@@ -41,12 +41,6 @@ app/
 
 ---
 
-## 🖼️ Captura visual (vista actual)
-
-*(Agregar imagen o GIF de la app si se desea)*
-
----
-
 ## 🧠 Tecnologías utilizadas
 
 - Java  
