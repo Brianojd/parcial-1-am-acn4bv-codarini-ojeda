@@ -15,15 +15,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_medicamentos"
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/ns_content"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:paddingBottom="12dp"
+        android:fillViewport="true"
         app:layout_constraintTop_toBottomOf="@id/tv_header"
-        app:layout_constraintBottom_toTopOf="@+id/fab_agregar"
+        app:layout_constraintBottom_toTopOf="@id/fab_agregar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_medicamentos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:paddingBottom="12dp" />
+
+            <!--  layout de saludd -->
+            <include layout="@layout/view_resumen_salud" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_agregar"
