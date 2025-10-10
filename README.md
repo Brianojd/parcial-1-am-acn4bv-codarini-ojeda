@@ -1,4 +1,4 @@
-# 💊 MedTrack Android (Demo Parcial)
+# 💊 MedTrack Android
 
 Aplicación Android desarrollada en **Java**, siguiendo el patrón **MVVM (Model - View - ViewModel)**.  
 Este proyecto forma parte de una práctica académica y muestra la estructura base de un sistema para **gestionar medicamentos y métricas de salud** del usuario.
