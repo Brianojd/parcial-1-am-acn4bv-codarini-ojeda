@@ -20,6 +20,13 @@
     <string name="password">Contraseña</string>
     <string name="confirm_password">Confirmar contraseña</string>
     <string name="forgot_password">¿Olvidaste tu contraseña?</string>
+    <string name="register_title">Registro</string>
+    <string name="name">Nombre</string>
+    <string name="error_complete_fields">Completa todos los campos</string>
+    <string name="ready_to_register">Listo para registrar</string>
+    <string name="error_short_password">La contraseña debe tener al menos 6 caracteres</string>
+    <string name="register_success">Usuario creado correctamente</string>
+    <string name="register_save_error">Error guardando usuario</string>
 
     <!-- Validaciones -->
     <string name="error_empty_field">Este campo no puede estar vacío</string>
