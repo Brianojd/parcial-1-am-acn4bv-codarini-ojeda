@@ -60,18 +60,7 @@ Además, se incluye una *tabla de referencia de IMC*, para que el usuario pueda 
 
 ---
 
-## 🧩 Archivos principales
 
-app/
-├─ ui/home/HomeActivity.java → pantalla principal
-├─ ui/medicamentos/MedicamentosAdapter.java
-├─ viewmodel/MedicamentosViewModel.java
-└─ res/layout/
-├─ activity_home.xml → vista con lista + bloque de salud
-├─ item_medicamento_card.xml → tarjeta individual de medicamento
-└─ layout_resumen_salud.xml → bloque con edad, peso, altura e IMC
-
---
 
 ## 🚀 Próximos pasos
 - Guardar los medicamentos de forma persistente.  
