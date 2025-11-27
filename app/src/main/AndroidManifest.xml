@@ -2,9 +2,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_medtrack"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_medtrack_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MedTrack">
 
@@ -27,7 +27,7 @@
             android:name=".ui.register.RegisterActivity"
             android:exported="false" />
 
-        <!-- COMPLETAR PERFIL (FALTABA ESTA) -->
+
         <activity
             android:name=".ui.register.CompletarPerfilActivity"
             android:exported="false" />
