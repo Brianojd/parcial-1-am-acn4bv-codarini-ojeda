@@ -8,8 +8,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.codarini.ojeda.parcial1.ui.home.HomeActivity;
 import com.codarini.ojeda.parcial1.ui.login.LoginActivity;
+import com.codarini.ojeda.parcial1.ui.register.CompletarPerfilActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,24 +20,50 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
 
-        // Opción 1: SIN layout en pantalla (más rápido)
-        // setContentView(R.layout.activity_main);
-
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        if (user != null) {
-            // -------------------------
-            // Usuario logueado
-            // -------------------------
-            startActivity(new Intent(this, HomeActivity.class));
-        } else {
-            // -------------------------
-            // Usuario NO logueado
-            // -------------------------
+
+        if (user == null) {
             startActivity(new Intent(this, LoginActivity.class));
+            finish();
+            return;
         }
 
-        // Cerramos esta Activity para que no vuelva atrás
-        finish();
+
+        String uid = user.getUid();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        db.collection("usuarios").document(uid).get()
+                .addOnSuccessListener(doc -> {
+
+
+                    if (!doc.exists()) {
+                        FirebaseAuth.getInstance().signOut();
+                        startActivity(new Intent(this, LoginActivity.class));
+                        finish();
+                        return;
+                    }
+
+
+                    Boolean activo = doc.getBoolean("activo");
+                    if (activo == null) activo = false;
+
+
+                    if (activo) {
+                        startActivity(new Intent(this, HomeActivity.class));
+                    }
+
+                    else {
+                        startActivity(new Intent(this, CompletarPerfilActivity.class));
+                    }
+
+                    finish();
+                })
+                .addOnFailureListener(e -> {
+
+                    FirebaseAuth.getInstance().signOut();
+                    startActivity(new Intent(this, LoginActivity.class));
+                    finish();
+                });
     }
 }
