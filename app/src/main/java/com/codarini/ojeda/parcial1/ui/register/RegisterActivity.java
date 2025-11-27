@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -23,6 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private EditText editName, editEmail, editPassword;
     private Button btnRegister;
+    private TextView btnLogin;  // 🔹 Nuevo botón para volver al login
 
     private FirebaseAuth auth;
     private FirebaseFirestore db;
@@ -49,13 +51,17 @@ public class RegisterActivity extends AppCompatActivity {
         editEmail = findViewById(R.id.editEmail);
         editPassword = findViewById(R.id.editPassword);
         btnRegister = findViewById(R.id.btnRegister);
+        btnLogin = findViewById(R.id.btnLogin);  // 🔹 enlace con el TextView nuevo
+
+        // 🔹 Listener: si el usuario ya tiene cuenta → volver al login
+        btnLogin.setOnClickListener(v -> finish());
 
         btnRegister.setOnClickListener(v -> {
             String name = editName.getText().toString().trim();
             String email = editEmail.getText().toString().trim();
             String password = editPassword.getText().toString().trim();
 
-            // ✅ Validaciones básicas
+            // Validaciones
             if (name.isEmpty()) {
                 editName.setError(getString(R.string.error_complete_fields));
                 editName.requestFocus();
@@ -78,7 +84,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    // 🔹 Flujo 1: crear usuario, guardar en Firestore, cerrar y volver al Login
+    // 🔹 Crear usuario, guardar info, cerrar actividad
     private void registerUser(String name, String email, String password) {
 
         btnRegister.setEnabled(false);
@@ -108,11 +114,9 @@ public class RegisterActivity extends AppCompatActivity {
                                         getString(R.string.register_success),
                                         Toast.LENGTH_SHORT).show();
 
-
                                 auth.signOut();
 
-
-                                finish();
+                                finish(); // Volver al login
                             })
                             .addOnFailureListener(e -> {
                                 btnRegister.setEnabled(true);
