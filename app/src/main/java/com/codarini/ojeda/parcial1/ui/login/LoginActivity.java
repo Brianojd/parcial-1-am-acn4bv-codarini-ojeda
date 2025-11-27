@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+import android.widget.TextView;   // 🔹 IMPORTANTE
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +18,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.codarini.ojeda.parcial1.R;
 import com.codarini.ojeda.parcial1.data.AuthRepository;
 import com.codarini.ojeda.parcial1.ui.home.HomeActivity;
+import com.codarini.ojeda.parcial1.ui.register.RegisterActivity;  // 🔹 IMPORTANTE
 import com.codarini.ojeda.parcial1.viewmodel.LoginViewModel;
 import com.codarini.ojeda.parcial1.viewmodel.LoginViewModelFactory;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,7 +30,6 @@ public class LoginActivity extends AppCompatActivity {
     private Button sendData;
     private ProgressBar loading;
     private LoginViewModel viewModel;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,18 +52,18 @@ public class LoginActivity extends AppCompatActivity {
         sendData = findViewById(R.id.sendData);
         loading = findViewById(R.id.loading);
 
-
-
-
-
+        // 🔹 Nuevo: botón para ir al registro
+        TextView btnRegister = findViewById(R.id.btnRegister);
+        btnRegister.setOnClickListener(v -> {
+            Intent intent = new Intent(this, RegisterActivity.class);
+            startActivity(intent);
+        });
 
         // -----------------------------
         // 2. Crear Repository
         // -----------------------------
         FirebaseAuth auth = FirebaseAuth.getInstance();
         AuthRepository repository = new AuthRepository(auth);
-
-
 
         // -----------------------------
         // 3. Crear ViewModel con Factory
@@ -84,17 +85,9 @@ public class LoginActivity extends AppCompatActivity {
 
             viewModel.login(emailValue, passValue);
         });
-
-
-
-
-
-
     }
 
     private void setupObservers() {
-
-        // No tenés ProgressBar, así que acá no hacemos nada con "loading"
 
         viewModel.getLoginSuccess().observe(this, success -> {
             if (success) {
