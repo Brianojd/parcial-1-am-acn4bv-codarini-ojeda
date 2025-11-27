@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="96dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginTop="12dp"
+    card_view:cardUseCompatPadding="true"
+    card_view:cardPreventCornerOverlap="true"
+    card_view:cardElevation="4dp"
+    card_view:cardCornerRadius="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre del medicamento"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:includeFontPadding="false" />
+
+            <TextView
+                android:id="@+id/tv_meta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Comprimido • 400 mg • Tomar 1"
+                android:textSize="13sp"
+                android:alpha="0.85"
+                android:paddingTop="2dp"
+                android:includeFontPadding="false" />
+
+            <TextView
+                android:id="@+id/tv_instr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Después de comer"
+                android:textSize="12sp"
+                android:alpha="0.7"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:paddingTop="2dp"
+                android:includeFontPadding="false" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_hora"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="08:00"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:paddingStart="12dp"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
