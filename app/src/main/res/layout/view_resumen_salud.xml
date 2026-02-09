@@ -2,6 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+   
+    android:id="@+id/include_resumen_salud"
     android:layout_height="wrap_content"
     android:background="?attr/colorSurface"
     android:orientation="vertical">
@@ -38,12 +40,14 @@
                     android:textSize="12sp" />
 
                 <TextView
+                    android:id="@+id/tv_edad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:text="23"
-                    android:textStyle="bold"
                     android:textSize="18sp"
-                    android:layout_marginTop="4dp" />
+                    android:textStyle="bold" />
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -77,6 +81,7 @@
                     android:layout_marginTop="4dp">
 
                     <TextView
+                        android:id="@+id/tv_altura"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="172"
@@ -86,11 +91,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" cm"
-                        android:textSize="12sp"
-                        android:textColor="#999"
+                        android:layout_gravity="bottom"
                         android:layout_marginStart="4dp"
-                        android:layout_gravity="bottom" />
+                        android:text=" "
+                        android:textColor="#999"
+                        android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -125,6 +130,7 @@
                     android:layout_marginTop="4dp">
 
                     <TextView
+                        android:id="@+id/tv_peso"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="68"
@@ -134,7 +140,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" kg"
+                        android:text=" "
                         android:textSize="12sp"
                         android:textColor="#999"
                         android:layout_marginStart="4dp"
@@ -160,35 +166,39 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_gravity="top|center_horizontal"
-                android:scaleType="fitCenter"
-                android:contentDescription="Gauge IMC" />
-            <!-- todo:  agregar iconos de caras asi: :) en verde, asi :| en amarillo ,y  asi :(  en rojo -->
+
+                android:id="@+id/iv_face"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="6dp"
+                android:contentDescription="Estado IMC"
+                android:src="@drawable/ic_face_neutral" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center_horizontal"
-                android:orientation="vertical"
                 android:gravity="center"
+                android:orientation="vertical"
                 android:paddingBottom="12dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="IMC"
+                    android:text="@string/imc_estado"
                     android:textColor="#777"
                     android:textSize="12sp" />
 
                 <TextView
+                    android:id="@+id/tv_imc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="21.8"
-                    android:textStyle="bold"
+                    android:textColor="#1565C0"
                     android:textSize="28sp"
-                    android:textColor="#1565C0" />
+                    android:textStyle="bold" />
             </LinearLayout>
         </FrameLayout>
     </androidx.cardview.widget.CardView>
@@ -215,6 +225,7 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/tv_categoria"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Normal"
@@ -256,17 +267,21 @@
         app:cardUseCompatPadding="true">
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="12dp">
 
             <LinearLayout
+                android:id="@+id/row_delgadez_muy_extrema"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingVertical="8dp">
                 <TextView
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -282,6 +297,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/row_delgadez_extrema"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -302,6 +318,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/row_delgadez"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -322,6 +339,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/row_normal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -342,6 +360,7 @@
             </LinearLayout>
             <!--  layout de salud -->
             <LinearLayout
+                android:id="@+id/row_sobrepeso"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -362,6 +381,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/row_obesidad_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -381,54 +401,12 @@
                     android:textColor="#666"/>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingVertical="8dp">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Obesidad grado II"
-                    android:textSize="14sp"
-                    android:textColor="#333"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="35.0 – 39.9"
-                    android:textSize="14sp"
-                    android:textColor="#666"/>
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingVertical="8dp">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Obesidad grado III"
-                    android:textSize="14sp"
-                    android:textColor="#333"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="≥ 40.0"
-                    android:textSize="14sp"
-                    android:textColor="#666"/>
-            </LinearLayout>
+
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Peso normal    61.0 – 74.3 kg"
-        android:textStyle="bold"
-        android:paddingHorizontal="16dp"
-        android:paddingBottom="16dp" />
+
 
 </LinearLayout>

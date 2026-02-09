@@ -62,7 +62,7 @@
         <item>Seleccione sexo</item>
         <item>M</item>
         <item>F</item>
-        <item>Otro</item>
+
     </string-array>
 
     <string-array name="actividad_array">
@@ -72,6 +72,7 @@
         <item>moderado</item>
         <item>intenso</item>
     </string-array>
+    <string name="imc_estado">Estado IMC</string>
 
 
 
