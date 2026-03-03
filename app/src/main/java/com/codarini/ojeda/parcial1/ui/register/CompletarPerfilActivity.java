@@ -15,6 +15,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.codarini.ojeda.parcial1.R;
+
 import com.codarini.ojeda.parcial1.ui.home.HomeActivity;
 import com.codarini.ojeda.parcial1.utils.validation.ProfileValidator;
 import com.google.firebase.auth.FirebaseAuth;
@@ -37,7 +38,7 @@ public class CompletarPerfilActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        //UserTopBarHelper.setup(this);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_completar_perfil);
 

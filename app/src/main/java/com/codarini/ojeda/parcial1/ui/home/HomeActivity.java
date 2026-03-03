@@ -1,5 +1,8 @@
 package com.codarini.ojeda.parcial1.ui.home;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -8,23 +11,28 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.codarini.ojeda.parcial1.R;
 import com.codarini.ojeda.parcial1.model.Usuario;
+
+import com.codarini.ojeda.parcial1.ui.medicamentos.MedicamentosFragment;
 import com.codarini.ojeda.parcial1.utils.EdadUtils.EdadUtils;
 import com.codarini.ojeda.parcial1.utils.ImcUtils.ImcUtils;
 import com.codarini.ojeda.parcial1.viewmodel.UserViewModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
+import androidx.recyclerview.widget.LinearLayoutManager;
+import com.codarini.ojeda.parcial1.ui.medicamentos.MedicamentosAdapter;
 public class HomeActivity extends AppCompatActivity {
 
     // ---- Layout principal
     private TextView tvHeader;
-    private RecyclerView rvMedicamentos;
+
     private FloatingActionButton fabAgregar;
 
     // ---- Resumen salud (del include)
@@ -42,20 +50,25 @@ public class HomeActivity extends AppCompatActivity {
     private LinearLayout rowNormal;
     private LinearLayout rowSobrepeso;
     private LinearLayout rowOb1;
-
+    private static final int REQ_NOTIF = 100;
     private UserViewModel userViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        pedirPermisoNotificaciones();
+        //UserTopBarHelper.setup(this);
         // -----------------------------
         // Bind layout principal
         // -----------------------------
         tvHeader = findViewById(R.id.tv_header);
-        rvMedicamentos = findViewById(R.id.rv_medicamentos);
-        fabAgregar = findViewById(R.id.fab_agregar);
+
+
+        // -----------------------------
+        // Conectando el Fab con el Fragment
+        // -----------------------------
+
 
 
         // -----------------------------
@@ -69,7 +82,7 @@ public class HomeActivity extends AppCompatActivity {
         }
 
 
-        // ⬆️ este ID lo tenés que poner en el root del include
+
 
         tvEdad = resumenSalud.findViewById(R.id.tv_edad);
         tvAltura = resumenSalud.findViewById(R.id.tv_altura);
@@ -115,6 +128,20 @@ public class HomeActivity extends AppCompatActivity {
                     Usuario usuario = doc.toObject(Usuario.class);
                     userViewModel.setUsuario(usuario);
                 });
+    }
+    private void pedirPermisoNotificaciones() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) return;
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
+                == PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+
+        ActivityCompat.requestPermissions(
+                this,
+                new String[]{Manifest.permission.POST_NOTIFICATIONS},
+                REQ_NOTIF
+        );
     }
     private void aplicarEstadoImc(
             double imc,

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nuevo medicamento"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingBottom="12dp"/>
+
+    <EditText
+        android:id="@+id/etnombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre (ej: Ibuprofeno)"
+        android:padding="12dp"/>
+
+    <EditText
+        android:id="@+id/etforma"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Forma (ej: Comprimido)"
+        android:padding="12dp"
+        android:layout_marginTop="8dp"/>
+
+    <EditText
+        android:id="@+id/etconcentracion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Concentración (ej: 400)"
+        android:inputType="numberDecimal"
+        android:padding="12dp"
+        android:layout_marginTop="8dp"/>
+
+    <EditText
+        android:id="@+id/etunidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Unidad (ej: mg)"
+        android:padding="12dp"
+        android:layout_marginTop="8dp"/>
+
+    <EditText
+        android:id="@+id/etdosis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Dosis (ej: 1)"
+        android:inputType="numberDecimal"
+        android:padding="12dp"
+        android:layout_marginTop="8dp"/>
+
+    <EditText
+        android:id="@+id/ethora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Hora (HH:mm) ej: 08:30"
+        android:inputType="text"
+        android:padding="12dp"
+        android:layout_marginTop="8dp"/>
+
+    <EditText
+        android:id="@+id/etinstr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Instrucciones (opcional)"
+        android:padding="12dp"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/btnguardar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        android:layout_marginTop="12dp"/>
+</LinearLayout>

@@ -22,20 +22,17 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-
         if (user == null) {
             startActivity(new Intent(this, LoginActivity.class));
             finish();
             return;
         }
 
-
         String uid = user.getUid();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         db.collection("usuarios").document(uid).get()
                 .addOnSuccessListener(doc -> {
-
 
                     if (!doc.exists()) {
                         FirebaseAuth.getInstance().signOut();
@@ -44,23 +41,15 @@ public class MainActivity extends AppCompatActivity {
                         return;
                     }
 
-
                     Boolean activo = doc.getBoolean("activo");
                     if (activo == null) activo = false;
 
-
-                    if (activo) {
-                        startActivity(new Intent(this, HomeActivity.class));
-                    }
-
-                    else {
-                        startActivity(new Intent(this, CompletarPerfilActivity.class));
-                    }
+                    if (activo) startActivity(new Intent(this, HomeActivity.class));
+                    else startActivity(new Intent(this, CompletarPerfilActivity.class));
 
                     finish();
                 })
                 .addOnFailureListener(e -> {
-
                     FirebaseAuth.getInstance().signOut();
                     startActivity(new Intent(this, LoginActivity.class));
                     finish();

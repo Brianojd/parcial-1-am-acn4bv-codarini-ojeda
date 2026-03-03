@@ -14,6 +14,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.codarini.ojeda.parcial1.R;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -24,7 +25,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private EditText editName, editEmail, editPassword;
     private Button btnRegister;
-    private TextView btnLogin;  // 🔹 Nuevo botón para volver al login
+    private TextView btnLogin;
 
     private FirebaseAuth auth;
     private FirebaseFirestore db;
@@ -35,7 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register);
-
+        //UserTopBarHelper.setup(this);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
